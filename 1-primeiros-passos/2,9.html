@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+//.9. Leia o ano de nascimento e informe se a pessoa pode votar no ano atual (sem considerar o mês).
+
+const anoNascimento = parseInt(prompt("Por favor, informe seu ano de nascimento:"));
+
+// 2. Define o ano atual e calcula a idade
+const anoAtual = 2026;
+const idade = anoAtual - anoNascimento;
+
+// 3. Verifica se a idade é suficiente para votar
+if (idade >= 16) {
+  alert(`Você tem (ou fará) ${idade} anos: Você PODE votar!`);
+} else {
+  alert(`Você tem (ou fará) ${idade} anos: Você NÃO pode votar.`);
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

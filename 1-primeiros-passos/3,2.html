@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //3.2. Leia dois valores. Enquanto o segundo valor for menor ou igual a zero, 
+        //peça novamente esse mesmo valor. Ao final, mostre a divisão do primeiro pelo segundo.
+
+        const num1 = parseFloat(prompt("Por favor, informe o primeiro número:"));
+
+let num2 = parseFloat(prompt("Por favor, informe o segundo número:"));
+
+while (num2 <= 0) {
+  alert("Valor inválido! O segundo número não pode ser menor ou igual a zero.");
+  num2 = parseFloat(prompt("Por favor, digite o segundo número novamente:"));
+}
+
+const resultado = num1 / num2;
+alert(`O resultado da divisão de ${num1} por ${num2} é: ${resultado}`);
+console.log(resultado);
+        
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

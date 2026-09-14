@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>//3.7. Leia um valor `N` (N > 0) e imprima todos os inteiros de 1 até `N`.
+
+let N = parseInt(prompt("Digite um valor para N (maior que 0):"));
+
+while (isNaN(N) || N <= 0) {
+  alert("Valor inválido! N precisa ser um número maior que zero.");
+  N = parseInt(prompt("Digite novamente um valor para N (maior que 0):"));
+}
+
+for (let i = 1; i <= N; i++) {
+  console.log(i);
+}
+
+alert(`Contagem de 1 até ${N} concluída! Abra o console (F12) para ver a lista.`);
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

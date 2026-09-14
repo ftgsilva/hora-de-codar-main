@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //2.8. Leia 4 números, aceitando apenas valores maiores que 0 e menores que 10. Calcule a média e:
+        //- se média > 5, exiba "Você passou no teste";
+        //- caso contrário, exiba "Tente novamente".
+
+        const num1 = parseFloat(prompt("por favor, Informe o  número:"));
+        const num2 = parseFloat(prompt("por favor, Informe o  número:"));
+        const num3 = parseFloat(prompt("por favor, Informe o  número:"));
+        const num4 = parseFloat(prompt("por favor, Informe o  número:"));
+if (
+  num1 > 0 && num1 < 10 &&
+  num2 > 0 && num2 < 10 &&
+  num3 > 0 && num3 < 10 &&
+  num4 > 0 && num4 < 10
+) {
+  const media = (num1 + num2 + num3 + num4) / 4;
+
+  if (media > 5) {
+    alert(`Média: ${media.toFixed(1)} - Você passou no teste`);
+  } else {
+    alert(`Média: ${media.toFixed(1)} - Tente novamente`);
+  }
+} else {
+  alert("Erro: todos os números devem ser estritamente maiores que 0 e menores que 10.");
+}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<html>
+
+<head>
+
+	<script>
+
+		const nome = prompt("Por favor, digite o seu nome:");
+    alert(`Olá ${nome}, é um prazer ter você por aqui!`);
+
+    var saldo = 100.5;
+    const senhaCorreta = "3589";
+ // 2. Menu Principal ordenado: Saldo, Extrato, Saque, Depósito, Transferência e Sair
+    function inicio() {
+        var escolha = parseInt(prompt(
+            'Selecione uma opção:\n' +
+            '1.) Saldo\n' +
+            '2.) Extrato\n' +
+            '3.) Saque\n' +
+            '4.) Depósito\n' +
+            '5.) Transferência\n' +
+            '6.) Sair'
+        ));
+
+        switch (escolha) {
+            case 1:
+                ver_saldo();
+                break;
+            case 2:
+                ver_extrato();
+                break;
+            case 3:
+                fazer_saque();
+                break;
+            case 4:
+                fazer_deposito();
+                break;
+            case 5:
+                fazer_transferencia();
+                break;
+            case 6:
+                sair();
+                break;
+            default:
+                erro();
+                break;
+        }
+    }
+
+    function ver_saldo() {
+        var senha = prompt("Informe a sua senha:");
+
+        if (senha !== senhaCorreta) {
+            alert("Senha incorreta! Tente novamente.");
+            ver_saldo();
+            return;
+        }
+
+        alert(`Seu saldo atual é: R$ ${saldo.toFixed(2)}`);
+        inicio();
+    }
+
+    function ver_extrato() {
+        var senha = prompt("Informe a sua senha:");
+
+        if (senha !== senhaCorreta) {
+            alert("Senha incorreta! Tente novamente.");
+            ver_extrato();
+            return;
+        }
+
+        var extrato = "===== EXTRATO BANCÁRIO =====\n\n" +
+                      "- Supermercado:        - R$ 54,30\n" +
+                      "- Farmácia:            - R$ 28,00\n" +
+                      "- Depósito recebido:   + R$ 150,00\n" +
+                      "- Padaria:             - R$ 12,50\n\n" +
+                      "----------------------------\n" +
+                      "Saldo disponível: R$ " + saldo.toFixed(2);
+
+        alert(extrato);
+        inicio();
+    }
+
+    function fazer_saque() {
+        var senha = prompt("Informe a sua senha:");
+
+        if (senha !== senhaCorreta) {
+            alert("Senha incorreta! Tente novamente.");
+            fazer_saque();
+            return;
+        }
+
+        var saque = parseFloat(prompt(`Saldo disponível: R$ ${saldo.toFixed(2)}\nQual o valor para saque?`));
+
+        if (isNaN(saque)) {
+            alert("Por favor, informe um número válido.");
+            fazer_saque();
+            return;
+        } else if (saque <= 0 || saque > saldo) {
+            alert("Operação não autorizada.");
+            inicio();
+        } else {
+            saldo -= saque;
+            alert(`Saque de R$ ${saque.toFixed(2)} realizado com sucesso!`);
+            ver_saldo();
+        }
+    }
+
+    function fazer_deposito() {
+        var deposito = parseFloat(prompt("Qual o valor para depósito?"));
+
+        if (isNaN(deposito)) {
+            alert("Por favor, informe um número válido.");
+            fazer_deposito();
+            return;
+        } else if (deposito <= 0) {
+            alert("Operação não autorizada.");
+            inicio();
+        } else {
+            saldo += deposito;
+            alert(`Depósito de R$ ${deposito.toFixed(2)} realizado com sucesso!`);
+            ver_saldo();
+        }
+    }
+
+    function fazer_transferencia() {
+        var senha = prompt("Informe a sua senha:");
+
+        if (senha !== senhaCorreta) {
+            alert("Senha incorreta! Tente novamente.");
+            fazer_transferencia();
+            return;
+        }
+
+        var contaDestino = prompt("Informe o número da conta de destino (apenas números):");
+        if (!contaDestino || isNaN(contaDestino)) {
+            alert("Número de conta inválido! Digite apenas números.");
+            fazer_transferencia();
+            return;
+        }
+
+        var valorTransferencia = parseFloat(prompt(`Saldo disponível: R$ ${saldo.toFixed(2)}\nQual o valor da transferência?`));
+
+        if (isNaN(valorTransferencia) || valorTransferencia <= 0 || valorTransferencia > saldo) {
+            alert("Operação não autorizada.");
+            inicio();
+            return;
+        }
+
+        saldo -= valorTransferencia;
+        alert(`Transferência de R$ ${valorTransferencia.toFixed(2)} para a conta ${contaDestino} realizada com sucesso!\nSaldo atual: R$ ${saldo.toFixed(2)}`);
+        inicio();
+    }
+
+    function erro() {
+        alert("Por favor, informe um número entre 1 a 6.");
+        inicio();
+    }
+  
+    function sair() {
+        alert(`${nome}, foi um prazer ter você por aqui!`);
+        window.close();
+    }
+
+    inicio();
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
